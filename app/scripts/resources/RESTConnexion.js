@@ -16,6 +16,8 @@ app.constant('NotBelongToByTeam', '/belongto/usersnotinteam/:idTeam');
 app.constant('TeamActualities', '/teamActuality');
 app.constant('Actuality', '/actuality/:id');
 app.constant('Actualities', '/actuality');
+app.constant('Tasks', '/task');
+app.constant('Todo','/todo');
 
 // Connexion to users's datas
 app.factory('LinkDB', function($resource, BaseURL, ConnexionUsers)
@@ -103,5 +105,19 @@ app.factory('LinkDBActualities', function($resource, BaseURL, Actualities){
 app.factory('LinkDBActualityId', function($resource, BaseURL, Actuality){
 	return $resource(BaseURL + Actuality, null,{
 		'update':{method:'PUT',params:{idActuality:"@idActuality"}}
+	});
+});
+
+// Connexion to Task datas
+app.factory('LinkDBTask', function($resource, BaseURL, Tasks){
+	return $resource(BaseURL + Tasks, null,{
+
+	});
+});
+
+// Connexion to todo datas
+app.factory('LinkDBTodo', function($resource, BaseURL, Todo){
+	return $resource(BaseURL + Todo, null,{
+		
 	});
 });
